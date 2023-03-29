@@ -24,7 +24,7 @@ public class UserMapperTests {
 
     @Test
     public void findByUsername() {
-        String username = "user01";
+        String username = "lower";
         User result = userMapper.findByUsername(username);
         System.out.println(result);
     }
