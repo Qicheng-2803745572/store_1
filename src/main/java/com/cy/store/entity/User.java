@@ -11,6 +11,7 @@ public class User extends BaseEntity implements Serializable {
     private String email;
     private Integer gender;
     private String avatar;
+    private Integer isDelete;
 
     public Integer getUid() {
         return uid;
@@ -84,6 +85,32 @@ public class User extends BaseEntity implements Serializable {
         this.isDelete = isDelete;
     }
 
-    private Integer isDelete;
-// Generate: Getter and Setter、Generate hashCode() and equals()、toString()
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(uid, user.uid) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(salt, user.salt) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && Objects.equals(gender, user.gender) && Objects.equals(avatar, user.avatar) && Objects.equals(isDelete, user.isDelete);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uid, username, password, salt, phone, email, gender, avatar, isDelete);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                ", avatar='" + avatar + '\'' +
+                ", isDelete=" + isDelete +
+                '}';
+    }
+    // Generate: Getter and Setter、Generate hashCode() and equals()、toString()
 }
